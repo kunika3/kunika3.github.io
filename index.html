@@ -13,7 +13,7 @@
     </svg>
 </body>
 <script>
-    d3.request("/https://github.com/nytimes/covid-19-data/blob/c7fa3211d71d0c70c617064cac12d72b2eb81d59/us-states.csv")
+    d3.request("https://raw.githubusercontent.com/nytimes/covid-19-data/c7fa3211d71d0c70c617064cac12d72b2eb81d59/us-states.csv")
     .mimeType("text/csv")
     .response(function (xhr) { return d3.csvParse(xhr.responseText); })
     .get(function(data) {
