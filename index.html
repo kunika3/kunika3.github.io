@@ -13,11 +13,10 @@
     </svg>
 </body>
 <script>
-    d3.request("https://github.com/nytimes/covid-19-data/blob/c7fa3211d71d0c70c617064cac12d72b2eb81d59/us-states.csv")
-    .mimeType("text/csv")
-    .response(function (xhr) { return d3.csvParse(xhr.responseText); })
-    .get(function(data) {
-        console.log(data);
+    d3.csv("https://github.com/nytimes/covid-19-data/find/c7fa3211d71d0c70c617064cac12d72b2eb81d59/us-countries.csv", function(data) {
+
+    }, function(error, rows){
+   console.log(rows);
     });
 </script>
 </html>
