@@ -37,7 +37,7 @@
             .projection(projection)
 
         covid1data.forEach(function(element, key) {
-            console.log(element["state"], states.properties['name']);
+            console.log(element["state"], states.properties);
             integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
         });
 
