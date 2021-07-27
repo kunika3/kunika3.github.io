@@ -47,7 +47,7 @@
             .attr('class', 'state')
             .attr('d', path)
             .attr("fill", function (d) {
-                d.total = integratedData.get(d.cases) || 0;
+                d.total = integratedData[d['cases']] || 0;
                 return colorScale(d.total);
             });
 
