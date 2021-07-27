@@ -23,6 +23,7 @@
         console.log('values', values);
         var slide1data = values[0];
         var covid1data = values[1];
+        var integratedData= {};
         var states = topojson.feature(slide1data, slide1data.objects.states).features
 
         console.log(states);
@@ -40,15 +41,23 @@
             .attr('class', 'state')
             .attr('d', path)
 
-        svg.selectAll('.confirmedcases')
-            .data(covid1data)
-            .enter()
-            .append('circle')
-            .attr('r', 2)
-            .attr('cx', function(d) {
-                console.log('d', d);
-            })
-            .attr('cy', 10)
+        covid1data.forEach(element => {
+            integratedData[element[" Country_code"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
+        })
+
+        console.log(integratedData);
+
+        });
+
+        // svg.selectAll('.confirmedcases')
+        //     .data(covid1data)
+        //     .enter()
+        //     .append('circle')
+        //     .attr('r', 2)
+        //     .attr('cx', function(d) {
+        //         console.log('d', d);
+        //     })
+        //     .attr('cy', 10)
     });
     // d3.queue()
     //     .defer(d3.json, 'world.topojson')
