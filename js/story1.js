@@ -26,7 +26,7 @@
         var integratedData= {};
         var states = topojson.feature(slide1data, slide1data.objects.states).features
         var colorScale = d3.scaleThreshold()
-            .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
+            .domain([100, 1000, 10000, 30000, 100000, 500000, 700000, 900000, 1000000])
             .range(d3.schemeBlues[7]);
 
         var projection = d3.geoAlbersUsa()
