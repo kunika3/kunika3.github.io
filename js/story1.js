@@ -25,7 +25,7 @@
     promises.push(d3.json("json/usa-states.json"));
     Promise.all(promises).then(function(values) {
         console.log('values', values);
-        var states = topojson.feature(value, values.objects.states).features
+        var states = topojson.feature(values, values.objects.states).features
 
         console.log(states);
     });
