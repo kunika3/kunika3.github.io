@@ -42,8 +42,10 @@
         });
 
         states.forEach(function(element, key) {
-            console.log(element.properties.name);
+            state[covid] = integratedData[element.properties.name];
         });
+
+        console.log(states);
 
         svg.selectAll('.state')
             .data(states)
@@ -52,7 +54,6 @@
             .attr('class', 'state')
             .attr('d', path)
             .attr("fill", function (d) {
-                console.log('d', d, integratedData[d['cases']]);
                 d.total = integratedData[d['cases']] || 0;
                 return colorScale(d.total);
             });
