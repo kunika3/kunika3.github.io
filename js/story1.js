@@ -54,7 +54,8 @@
             .attr('class', 'state')
             .attr('d', path)
             .attr("fill", function (d) {
-                d.total = integratedData[d['cases']] || 0;
+                console.log(d);
+                d.total =  d.covid.cases || 0;
                 return colorScale(d.total);
             });
 
