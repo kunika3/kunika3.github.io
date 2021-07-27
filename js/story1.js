@@ -22,7 +22,7 @@
         drawCanvas();
         console.log(response);
     }
-    promises.push(d3.json("world.topojson"));
+    promises.push(d3.json("json/usa-states.json"));
     Promise.all(promises).then(function(values) {
         console.log('values', values);
     });
