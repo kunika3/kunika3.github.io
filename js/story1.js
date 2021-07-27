@@ -41,7 +41,8 @@
             .attr('class', 'state')
             .attr('d', path)
 
-        covid1data.forEach(function(element) {
+        covid1data.forEach(function(element, key) {
+            console.log(element);
             integratedData[element[" Country_code"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
         });
 
