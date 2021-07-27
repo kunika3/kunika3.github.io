@@ -47,10 +47,7 @@
         console.log(covid1data);
 
         var alldates = d3.map(covid1data, function(d) {
-            var parseDate = d3.timeParse("%Y-%m-%d");
-            var formatDate = d3.timeFormat("%Y-%m");
-            var formatedDate = formatDate(parseDate(d.date));
-            return formatedDate;
+            return d.date;
         });
 
         console.log(alldates);
