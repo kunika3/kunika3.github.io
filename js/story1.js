@@ -39,9 +39,8 @@
         covid1data.forEach(function(element, key) {
             // console.log(element["state"], states.properties[]);
             var parseDate = d3.timeFormat('%Y, %m, %d').parse;
-            var parseDate1 = d3.time.format('%Y, %m, %d').parse;
             var formatDate = d3.timeFormat("%B - %Y");
-            console.log(parseDate('2021-03-19'), parseDate1('2021-03-19'));
+            console.log(parseDate('2021-03-19'));
             // console.log(parseDate(element['date']), formatDate(element['date']), element['date']);
             integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
         });
