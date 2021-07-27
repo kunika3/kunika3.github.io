@@ -42,7 +42,7 @@
         });
 
         states.forEach(function(element, key) {
-            state[covid] = integratedData[element.properties.name];
+            element['covid'] = integratedData[element.properties.name];
         });
 
         console.log(states);
