@@ -38,7 +38,7 @@
 
         svg.selectAll('.state')
             .data(states)
-            .emter()
+            .enter()
             .append('path')
             .attr('class', 'state')
             .attr('d', path)
