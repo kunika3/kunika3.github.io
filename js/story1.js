@@ -37,6 +37,13 @@
 
     var path = d3.geoPath()
         .projection(projection)
+
+    svg.selectAll('.state')
+        .data(states)
+        .emter()
+        .append('path')
+        .attr('class', 'state')
+        .attr('d', path)
     // d3.queue()
     //     .defer(d3.json, 'world.topojson')
     //     .await(ready)
