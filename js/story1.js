@@ -40,8 +40,8 @@
             // console.log(element["state"], states.properties[]);
             var parseDate = d3.timeFormat("%Y-%m-%d");
             var formatDate = d3.timeFormat("%B - %Y");
-            console.log(formatDate('2021-03-19'));
-            console.log(parseDate(element['date']), formatDate(element['date']), element['date']);
+            console.log(formatDate('2021-03-19'), parseDate('2021-03-19'));
+            // console.log(parseDate(element['date']), formatDate(element['date']), element['date']);
             integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
         });
 
