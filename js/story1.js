@@ -26,7 +26,6 @@
         var integratedData= {};
         var states = topojson.feature(slide1data, slide1data.objects.states).features
 
-        console.log(states);
         var projection = d3.geoAlbersUsa()
             .translate([width/2, height/2])
             .scale(900)
@@ -42,9 +41,13 @@
             .attr('d', path)
 
         covid1data.forEach(function(element, key) {
-            console.log(element);
-            integratedData[element[" Country_code"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
+            integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
         });
+
+        // slide1data.forEach(function(element, key) {
+
+        //     integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
+        // });
 
         console.log(integratedData);
 
