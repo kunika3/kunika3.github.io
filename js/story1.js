@@ -18,7 +18,7 @@
     //     console.log(response);
     // }
     promises.push(d3.json("json/usa-states.json"));
-    promises.push(await d3.csv(url));
+    // promises.push(await d3.csv(url));
     Promise.all(promises).then(function(values) {
         console.log('values', values);
         var slide1data = values[0];
