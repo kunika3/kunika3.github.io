@@ -49,10 +49,12 @@
             dateData[date] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
 
             // console.log(parseDate(element['date']), formatDate(element['date']), element['date']);
-            integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
+            // integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
+            integratedData[element["state"]] = integratedData.push(dateData);
         });
 
         console.log(dateData);
+        console.log(integratedData)
 
         states.forEach(function(element, key) {
             element['covid'] = integratedData[element.properties.name];
