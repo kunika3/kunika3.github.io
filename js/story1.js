@@ -6,7 +6,7 @@
     let url= 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv'
     let req = new XMLHttpRequest();
     let data;
-    var  svg = d3.select('#map')
+    var  svg = d3.select('#canvas')
             .append('svg')
             .attr('height', height+margin.top+margin.bottom)
             .attr('width', height+margin.left+margin.right)
@@ -29,7 +29,7 @@
         var states = topojson.feature(slide1data, slide1data.objects.states).features
 
         console.log(states);
-        var projection = d3.geoMercator()
+        var projection = d3.geoAlbersUsa()
             .translate([width/2, height/2])
             .scale(100)
 
