@@ -54,7 +54,7 @@
             .attr('class', 'state')
             .attr('d', path)
             .attr("fill", function (d) {
-                console.log(d);
+                console.log(d.covid.cases);
                 d.total =  d.covid.cases || 0;
                 return colorScale(d.total);
             });
