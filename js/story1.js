@@ -35,12 +35,15 @@
 
         var path = d3.geoPath()
             .projection(projection)
+        var alldates = d3.map(covid1data, function(d){return d.date;})
+        console.log(alldates);
 
         covid1data.forEach(function(element, key) {
             // console.log(element["state"], states.properties[]);
             var parseDate = d3.timeParse("%Y-%m-%d");
             var formatDate = d3.timeFormat("%Y-%m");
-            console.log(formatDate(parseDate(element['date'])));
+            // console.log(formatDate(parseDate(element['date'])));
+
             // console.log(parseDate(element['date']), formatDate(element['date']), element['date']);
             integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
         });
