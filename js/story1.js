@@ -41,6 +41,10 @@
             integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
         });
 
+        states.forEach(function(element, key) {
+            console.log(element.properties.name);
+        });
+
         svg.selectAll('.state')
             .data(states)
             .enter()
