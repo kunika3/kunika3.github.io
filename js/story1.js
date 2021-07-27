@@ -38,14 +38,13 @@
 
         covid1data.forEach(function(element, key) {
             // console.log(element["state"], states.properties[]);
+            console.log(formatDate = d3.time.format("%b-%Y"));
             integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
         });
 
         states.forEach(function(element, key) {
             element['covid'] = integratedData[element.properties.name];
         });
-
-        console.log(colorScale(100000), d3.schemeBlues[7]);
 
         svg.selectAll('.state')
             .data(states)
@@ -54,7 +53,6 @@
             .attr('class', 'state')
             .attr('d', path)
             .attr("fill", function (d) {
-                console.log(d.covid.cases);
                 d.total =  d.covid.cases || 0;
                 return colorScale(d.total);
             });
