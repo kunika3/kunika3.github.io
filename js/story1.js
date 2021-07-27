@@ -1,6 +1,6 @@
 (function() {
     var margin = { top: 50, left: 50, right: 50, bottom: 50},
-    height = 400 - margin.top - margin.bottom,
+    height = 600 - margin.top - margin.bottom,
     width = 800 - margin.left - margin.right;
     var promises = [];
     let url= 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv'

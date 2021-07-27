@@ -8,3 +8,9 @@ body {
 svg {
     background-color: #efefef;
 }
+
+.state {
+    fill: #e3e3e3;
+    stroke: black;
+    stroke-width: 0.5;
+}
