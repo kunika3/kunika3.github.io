@@ -22,6 +22,7 @@
     Promise.all(promises).then(function(values) {
         console.log('values', values);
         var slide1data = values[0];
+        var covid1data = values[1];
         var states = topojson.feature(slide1data, slide1data.objects.states).features
 
         console.log(states);
@@ -38,6 +39,16 @@
             .append('path')
             .attr('class', 'state')
             .attr('d', path)
+
+        svg.selectAll('.confirmedcases')
+            .data(covid1data)
+            .enter()
+            .append('circle')
+            .attr('r', 2)
+            .attr('cx', function(d) {
+                console.log('d', d);
+            })
+            .attr('cy', 10)
     });
     // d3.queue()
     //     .defer(d3.json, 'world.topojson')
