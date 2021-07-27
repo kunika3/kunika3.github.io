@@ -37,6 +37,15 @@
 
         var path = d3.geoPath()
             .projection(projection)
+
+        covid1data.forEach(function(element, key) {
+            var parseDate = d3.timeParse("%Y-%m-%d");
+            var formatDate = d3.timeFormat("%Y-%m");
+            element.date = formatDate(parseDate(element.date));
+        });
+
+        console.log(covid1data);
+
         var alldates = d3.map(covid1data, function(d) {
             var parseDate = d3.timeParse("%Y-%m-%d");
             var formatDate = d3.timeFormat("%Y-%m");
