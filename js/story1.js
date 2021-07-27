@@ -13,16 +13,12 @@
             .append('g')
             .attr('transform', 'translate('+ margin.left + ',' + margin.top +')');
 
-    let drawCanvas = () => {
-        svg.attr('width', width);
-        svg.attr('height', height);
-    }
-    async function getData() {
-        const response = await d3.csv(url);
-        drawCanvas();
-        console.log(response);
-    }
+    // async function getData() {
+    //     const response = await d3.csv(url);
+    //     console.log(response);
+    // }
     promises.push(d3.json("json/usa-states.json"));
+    promises.push(await d3.csv(url));
     Promise.all(promises).then(function(values) {
         console.log('values', values);
         var slide1data = values[0];
