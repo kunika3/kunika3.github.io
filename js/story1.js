@@ -25,14 +25,24 @@
     promises.push(d3.json("json/usa-states.json"));
     Promise.all(promises).then(function(values) {
         console.log('values', values);
+        var states = topojson.feature(value, values.objects.states).features
+
+        console.log(states);
     });
+
+    var projection = d3.geoMercator()
+        .translate([width/2, height/2])
+        .scale(100)
+
+    var path = d3.geoPath()
+        .projection(projection)
     // d3.queue()
     //     .defer(d3.json, 'world.topojson')
     //     .await(ready)
 
-    function ready(error, data){
-        console.log(data);
-    }
+    // function ready(error, data){
+    //     console.log(data);
+    // }
 })();
 
 
