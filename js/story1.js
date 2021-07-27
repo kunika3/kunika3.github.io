@@ -24,6 +24,7 @@
         var slide1data = values[0];
         var covid1data = values[1];
         var integratedData= {};
+        var dateData = {};
         var states = topojson.feature(slide1data, slide1data.objects.states).features
         var colorScale = d3.scaleThreshold()
             .domain([100, 1000, 100000, 500000, 700000, 900000, 1000000])
@@ -43,10 +44,15 @@
             var parseDate = d3.timeParse("%Y-%m-%d");
             var formatDate = d3.timeFormat("%Y-%m");
             // console.log(formatDate(parseDate(element['date'])));
+            var date = formatDate(parseDate(element['date']));
+
+            dateData[date] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
 
             // console.log(parseDate(element['date']), formatDate(element['date']), element['date']);
             integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
         });
+
+        console.log(dateData);
 
         states.forEach(function(element, key) {
             element['covid'] = integratedData[element.properties.name];
