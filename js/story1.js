@@ -25,6 +25,7 @@
         var covid1data = values[1];
         var integratedData= {};
         var dateData = {};
+        var x=0;
         var states = topojson.feature(slide1data, slide1data.objects.states).features
         var colorScale = d3.scaleThreshold()
             .domain([100, 1000, 100000, 500000, 700000, 900000, 1000000])
@@ -36,7 +37,12 @@
 
         var path = d3.geoPath()
             .projection(projection)
-        var alldates = d3.map(covid1data, function(d){return d.date;})
+        var alldates = d3.map(covid1data, function(d){
+            var parseDate = d3.timeParse("%Y-%m-%d");
+            var formatDate = d3.timeFormat("%Y-%m");
+            var formatedDate = formatDate(parseDate(d.date));
+            return formatedDate;
+        })
         console.log(alldates);
 
         covid1data.forEach(function(element, key) {
@@ -45,12 +51,12 @@
             var formatDate = d3.timeFormat("%Y-%m");
             // console.log(formatDate(parseDate(element['date'])));
             var date = formatDate(parseDate(element['date']));
-
-            dateData[date] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
+            dateData[date] =
+            // dateData[date] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
 
             // console.log(parseDate(element['date']), formatDate(element['date']), element['date']);
             // integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
-            integratedData[element["state"]] = integratedData.push(dateData);
+
         });
 
         console.log(dateData);
