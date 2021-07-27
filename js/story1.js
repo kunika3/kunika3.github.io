@@ -44,10 +44,10 @@
             integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
         });
 
-        // slide1data.forEach(function(element, key) {
-
-        //     integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
-        // });
+        states.forEach(function(element, key) {
+            console.log(element);
+            // integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
+        });
 
         console.log(integratedData);
 
