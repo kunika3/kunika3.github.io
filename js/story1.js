@@ -1,15 +1,15 @@
 (function() {
     var margin = { top: 50, left: 50, right: 50, bottom: 50},
-    height = 400-margin.top - margin.bottom,
-    width = 800-margin.left-margin.right;
+    height = 400 - margin.top - margin.bottom,
+    width = 800 - margin.left - margin.right;
     var promises = [];
     let url= 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv'
     let req = new XMLHttpRequest();
     let data;
     var  svg = d3.select('#canvas')
             .append('svg')
-            .attr('height', height+margin.top+margin.bottom)
-            .attr('width', height+margin.left+margin.right)
+            .attr('height', height + margin.top + margin.bottom)
+            .attr('width', width + margin.left + margin.right)
             .append('g')
             .attr('transform', 'translate('+ margin.left + ',' + margin.top +')');
 
@@ -31,7 +31,7 @@
         console.log(states);
         var projection = d3.geoAlbersUsa()
             .translate([width/2, height/2])
-            .scale(100)
+            .scale(900)
 
         var path = d3.geoPath()
             .projection(projection)
