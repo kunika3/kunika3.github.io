@@ -1,5 +1,4 @@
 (function() {
-    var d3_composite = require("d3-composite-projections");
     var margin = { top: 50, left: 50, right: 50, bottom: 50},
     height = 400-margin.top - margin.bottom,
     width = 800-margin.left-margin.right;
@@ -30,7 +29,7 @@
         var states = topojson.feature(slide1data, slide1data.objects.states).features
 
         console.log(states);
-        var projection = d3_composite.geoAlbersUsa()
+        var projection = d3.geoAlbersUsa()
             .translate([width/2, height/2])
             .scale(100)
 
