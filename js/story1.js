@@ -38,7 +38,7 @@
 
         covid1data.forEach(function(element, key) {
             // console.log(element["state"], states.properties[]);
-            var parseDate = d3.timeFormat('%Y, %m, %d').parse;
+            var parseDate = d3.timeParse('%Y, %m, %d');
             var formatDate = d3.timeFormat("%B - %Y");
             console.log(parseDate('2021-03-19'));
             // console.log(parseDate(element['date']), formatDate(element['date']), element['date']);
