@@ -41,13 +41,12 @@
             .attr('class', 'state')
             .attr('d', path)
 
-        covid1data.forEach(element => {
+        covid1data.forEach(function(element) {
             integratedData[element[" Country_code"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
-        })
+        });
 
         console.log(integratedData);
 
-        });
 
         // svg.selectAll('.confirmedcases')
         //     .data(covid1data)
