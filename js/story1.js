@@ -45,7 +45,7 @@
             element['covid'] = integratedData[element.properties.name];
         });
 
-        console.log(colorScale(100000));
+        console.log(colorScale(100000), d3.schemeBlues[7]);
 
         svg.selectAll('.state')
             .data(states)
