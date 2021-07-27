@@ -25,6 +25,9 @@
         var covid1data = values[1];
         var integratedData= {};
         var states = topojson.feature(slide1data, slide1data.objects.states).features
+        var colorScale = d3.scaleThreshold()
+            .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
+            .range(d3.schemeBlues[7]);
 
         var projection = d3.geoAlbersUsa()
             .translate([width/2, height/2])
@@ -33,34 +36,40 @@
         var path = d3.geoPath()
             .projection(projection)
 
+        covid1data.forEach(function(element, key) {
+            integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
+        });
+
         svg.selectAll('.state')
             .data(states)
             .enter()
             .append('path')
             .attr('class', 'state')
             .attr('d', path)
+            .attr("fill", function (d) {
+                d.total = integratedData.get(d.cases) || 0;
+                return colorScale(d.total);
+            });
 
-        covid1data.forEach(function(element, key) {
-            integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
-        });
 
-        states.forEach(function(element, key) {
-            console.log(element);
-            // integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
-        });
 
         console.log(integratedData);
 
+        // covid1data.forEach(function(element, key) {
 
-        // svg.selectAll('.confirmedcases')
-        //     .data(covid1data)
-        //     .enter()
-        //     .append('circle')
-        //     .attr('r', 2)
-        //     .attr('cx', function(d) {
-        //         console.log('d', d);
-        //     })
-        //     .attr('cy', 10)
+        //     if(element['date'] === "2021-03-01") {
+        //         svg.selectAll('.confirmedcases')
+        //         .data(integratedData)
+        //         .enter()
+        //         .append('circle')
+        //         .attr('r', 2)
+        //         .attr('cx', function(d) {
+        //             console.log('d', d);
+        //         })
+        //         .attr('cy', 10)
+        //     }
+        //     }
+
     });
     // d3.queue()
     //     .defer(d3.json, 'world.topojson')
