@@ -29,21 +29,20 @@
         var states = topojson.feature(slide1data, slide1data.objects.states).features
 
         console.log(states);
+        var projection = d3.geoMercator()
+            .translate([width/2, height/2])
+            .scale(100)
+
+        var path = d3.geoPath()
+            .projection(projection)
+
+        svg.selectAll('.state')
+            .data(states)
+            .emter()
+            .append('path')
+            .attr('class', 'state')
+            .attr('d', path)
     });
-
-    var projection = d3.geoMercator()
-        .translate([width/2, height/2])
-        .scale(100)
-
-    var path = d3.geoPath()
-        .projection(projection)
-
-    svg.selectAll('.state')
-        .data(states)
-        .emter()
-        .append('path')
-        .attr('class', 'state')
-        .attr('d', path)
     // d3.queue()
     //     .defer(d3.json, 'world.topojson')
     //     .await(ready)
