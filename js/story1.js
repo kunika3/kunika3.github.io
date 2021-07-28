@@ -46,11 +46,16 @@
 
         console.log(covid1data);
 
-        var alldates = d3.map(covid1data, function(d) {
-            return d.date;
-        });
+        // var alldates = d3.map(covid1data, function(d) {
+        //     return d.date;
+        // });
 
-        console.log(alldates);
+        var grouped_data = d3.group(covid1data,
+            d => d.state, d => d.date)
+
+        console.log(grouped_data);
+
+        // console.log(alldates);
 
         covid1data.forEach(function(element, key) {
             // console.log(element["state"], states.properties[]);
