@@ -31,6 +31,9 @@ var integratedData= [];
         var sortData= {};
         var states = topojson.feature(slide1data, slide1data.objects.states)
 
+        localStorage.setItem( 'objectToPass', JSON.stringify(states) );
+
+
         var projection = d3.geoAlbersUsa()
             .translate([width/2, height/2])
             .scale(900)
@@ -51,6 +54,7 @@ var integratedData= [];
             element.Date = formatDate(parseDate(element.Date));
         });
 
+        localStorage.setItem( 'vaccineToPass', JSON.stringify(vaccine1data) );
         var grouped_data = d3.group(covid1data,
             d => d.state,
             d => d.date );
@@ -169,7 +173,7 @@ var integratedData= [];
 
     var colorScale = d3.scaleThreshold()
   .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
-  .range(d3.schemeReds[7]);
+  .range(['white','pink', 'red']);
 
 
 
@@ -396,7 +400,6 @@ var integratedData= [];
         .values()
         .value();
 
-        localStorage.setItem( 'objectToPass', JSON.stringify(states) );
         console.log(states);
         // _(states.features)
         //     .keyBy('properties.name')

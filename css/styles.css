@@ -20,8 +20,46 @@ svg {
     cursor: pointer;
   }
 
+.slides, ul {
+    display:inline-block;
+}
+
 select {
     position: relative;
+}
+
+ul {
+    list-style: none;
+}
+.nav-item {
+    display: inline-block;
+    padding-left: 30px;
+    color: Black;
+}
+
+.nav-item > a {
+    color:black;
+    background-color: mistyrose;
+    padding: 5px;
+
+}
+
+.nav-item > .active > a {
+    color: grey;
+    background-color: chartreuse;
+  }
+  .nav-item > a:hover {
+    color: grey;
+  }
+
+.labelforX, .labelforY{
+    text-anchor: middle;
+    font-size: 14px;
+}
+
+.labelforY {
+    position: absolute;
+    direction: rtl;
 }
 
 #tooltip{
