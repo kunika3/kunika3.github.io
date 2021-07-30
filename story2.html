@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Narrative Visualization</title>
+    <title>Narrative Visualization-Slide2</title>
     <script type='text/javascript' src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type = "text/JavaScript"
@@ -14,28 +14,24 @@
     <link rel='stylesheet' href='css/styles.css'/>
 </head>
 <body id='canvas'>
-    <div class="container">
+      <div class="container">
         <h2><span>Coronovirus Interactive Storytelling</span></h2>
-        <span>Interactive Slides</span>
+        <span class='slides'>Interactive Slides</span>
         <ul class="nav nav-tabs justify-content-center"> <!-- nav-pills -->
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html" index=1><span>US Confirmed cases/state</span></a>
+          <li class="nav-item first">
+            <a class="nav-link active" href="story1.html" index=1><span>US Covid cases >></span></a>
+          </li>
+          <li class="nav-item second">
+            <a class="nav-link" href="story2.html" index=2><span>US Fully vs Partial Vaccination of States >></span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="slide2.html" index=2><span>US Vaccination/state</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="slide3.html" index=3>Vaccination stats</a>
+            <a class="nav-link" href="story3.html" index=3>Comparing States for Vaccinations Done</a>
           </li>
         </ul>
       </div>
-
-      <div class='story' id='story1'>
-        </div>
-        <div class='story' id='story2'>
-        </div>
-        <div class='story' id='story3'>
-        </div>
+        <span>The slide shows the vaccination progress in each state since December 2020. The drowndown at the top helps filter the state to see the increase in fully vaccinated population. </span>
+        <span>The axis on the left indicates the population of fully vaccinated people in Millions or less and the x axis shows the month sof the years.</span>>
+    </div>
 </body>
 <script type='text/javascript' src='js/slide2.js'>
 </script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narrative Visualization</title>
+    <script type='text/javascript' src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script type = "text/JavaScript"
+        src = "https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.4.1/tinycolor.js"></script>
+    <link rel='stylesheet' href='css/styles.css'/>
+</head>
+<body id='canvas'>
+    <div class="container">
+        <h2><span>Coronovirus Interactive Storytelling</span></h2>
+        <span class='slides'>Interactive Slides</span>
+        <ul class="nav nav-tabs justify-content-center"> <!-- nav-pills -->
+          <li class="nav-item first">
+            <a class="nav-link active" href="story1.html" index=1><span>US Covid cases >></span></a>
+          </li>
+          <li class="nav-item second">
+            <a class="nav-link" href="story2.html" index=2><span>US Fully vs Partial Vaccination of States >></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="story3.html" index=3>Comparing States for Vaccinations Done</a>
+          </li>
+        </ul>
+    </div>
+    <div class='map-text'>
+        <span>The map details the impact of coronavirus in United States. We see that while whole US was impacted, the spread was varied across states. The following show the spread with the color gradients from Red ( highly impacted ) to white ( low impact). Find more details by hovering over each state, where the tool tip details name, confirmed cases, deaths and percentage of vaccinated population. Use the drop down for month to month  view of the map.</span>
+
+        <ul>
+          <span>Vacination is a 2 does process. Further nations tell you about.</span>
+          <li class='slide1Info'>Fully(2 doess) v/s paritial vaication rates ( 1 does).</li>
+          <li class='slide1Info'>Comparision of vaccination across states.</li>
+        </ul>
+    </div>
+</body>
+<script type='text/javascript' src='js/slide1.js'>
+</script>
+</html>

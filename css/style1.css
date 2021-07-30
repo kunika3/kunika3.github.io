@@ -1,0 +1,16 @@
+line,
+path {
+  fill: none;
+  shape-rendering: crispEdges;
+  stroke: black;
+}
+
+.bar:hover {
+    fill: orangered ;
+}
+
+.legends {
+    .red{
+        border-radius: ;
+    }
+}
