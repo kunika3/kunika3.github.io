@@ -1,113 +1,30 @@
 (function() {
-    var margin = { top: 50, left: 50, right: 50, bottom: 50},
-    height = 600 - margin.top - margin.bottom,
-    width = 800 - margin.left - margin.right;
-    var promises = [];
-    let url= 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv'
-    let req = new XMLHttpRequest();
-    let data;
-    var  svg = d3.select('#canvas')
-            .append('svg')
-            .attr('height', height + margin.top + margin.bottom)
-            .attr('width', width + margin.left + margin.right)
-            .append('g')
-            .attr('transform', 'translate('+ margin.left + ',' + margin.top +')');
+    // var margin = { top: 50, left: 50, right: 50, bottom: 50},
+    // height = 600 - margin.top - margin.bottom,
+    // width = 800 - margin.left - margin.right;
+    // var promises = [];
+    // let url= 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv'
+    // let req = new XMLHttpRequest();
+    // let data;
+    // var  svg = d3.select('#canvas')
+    //         .append('svg')
+    //         .attr('height', height + margin.top + margin.bottom)
+    //         .attr('width', width + margin.left + margin.right)
+    //         .append('g')
+    //         .attr('transform', 'translate('+ margin.left + ',' + margin.top +')');
+    // let g = svg.append( "g" );
+    // let confirmed = svg.append( "g" );
 
     // async function getData() {
     //     const response = await d3.csv(url);
     //     console.log(response);
     // }
-    promises.push(d3.json("json/usa-states.json"));
-    promises.push(d3.csv(url));
-    Promise.all(promises).then(function(values) {
-        console.log('values', values);
-        var slide1data = values[0];
-        var covid1data = values[1];
-        var integratedData= {};
-        var dateData = {};
-        var x=0;
-        var states = topojson.feature(slide1data, slide1data.objects.states).features
-        var colorScale = d3.scaleThreshold()
-            .domain([100, 1000, 100000, 500000, 700000, 900000, 1000000])
-            .range(d3.schemeBlues[7]);
+    // let dropdown = $('#locality-dropdown');
 
-        var projection = d3.geoAlbersUsa()
-            .translate([width/2, height/2])
-            .scale(900)
+    // dropdown.empty();
 
-        var path = d3.geoPath()
-            .projection(projection)
+    // dropdown.append('<option disabled>Choose Month-Year</option>');
 
-        covid1data.forEach(function(element, key) {
-            var parseDate = d3.timeParse("%Y-%m-%d");
-            var formatDate = d3.timeFormat("%B-%Y");
-            element.date = formatDate(parseDate(element.date));
-        });
-
-        console.log(covid1data);
-
-        // var alldates = d3.map(covid1data, function(d) {
-        //     return d.date;
-        // });
-
-        var grouped_data = d3.group(covid1data,
-            d => d.state, d => d.date)
-
-        console.log(grouped_data);
-
-        // console.log(alldates);
-
-        covid1data.forEach(function(element, key) {
-            // console.log(element["state"], states.properties[]);
-            // var parseDate = d3.timeParse("%Y-%m-%d");
-            // var formatDate = d3.timeFormat("%Y-%m");
-            // // console.log(formatDate(parseDate(element['date'])));
-            // var date = formatDate(parseDate(element['date']));
-            // dateData[date] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
-
-            // console.log(parseDate(element['date']), formatDate(element['date']), element['date']);
-            // integratedData[element["state"]] = {"cases": +element["cases"], "deaths": +element["deaths"], "iso2": element["state"]};
-
-        });
-
-        console.log(dateData);
-        console.log(integratedData)
-
-        states.forEach(function(element, key) {
-            element['covid'] = integratedData[element.properties.name];
-        });
-
-        svg.selectAll('.state')
-            .data(states)
-            .enter()
-            .append('path')
-            .attr('class', 'state')
-            .attr('d', path)
-            .attr("fill", function (d) {
-                d.total =  d.covid.cases || 0;
-                return colorScale(d.total);
-            });
-
-
-
-        console.log(integratedData);
-
-        // covid1data.forEach(function(element, key) {
-
-        //     if(element['date'] === "2021-03-01") {
-        //         svg.selectAll('.confirmedcases')
-        //         .data(integratedData)
-        //         .enter()
-        //         .append('circle')
-        //         .attr('r', 2)
-        //         .attr('cx', function(d) {
-        //             console.log('d', d);
-        //         })
-        //         .attr('cy', 10)
-        //     }
-        //     }
-
-    });
     // d3.queue()
     //     .defer(d3.json, 'world.topojson')
     //     .await(ready)
@@ -116,5 +33,12 @@
     //     console.log(data);
     // }
 })();
+
+function getFilteredData(data, group) {
+	data.filter(function(val, key) {
+        console.log('point', val, key);
+
+         });
+}
 
 

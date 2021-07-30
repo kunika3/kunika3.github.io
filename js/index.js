@@ -1,8 +1,19 @@
+
 $(document).ready ( function(){
-    $.getScript('js/story1.js', function()
-    {
-        // script is now loaded and executed.
-        // put your dependent JS here.
-        console.log('Loaded');
-    });
+
+  $(".nav a").on("click", function() {
+    $(".nav a").removeClass("active");
+    $(this).addClass("active");
+
+    $(".story").css({"display": "none"});
+
+    i = $(this).attr("index");
+
+    $(`#story${i}`).css({"display": "block"});
+
+    $.getScript(`js/slide${i}.js`);
+  });
+
+  $("a:contains(US Covid Data)").click();
+
 });
